@@ -1,5 +1,7 @@
 import '../App.css';
 import { useState } from 'react'
+import Interior from './Interior';
+import Exterior from './Exterior';
 
 const Dropdown = () => {
     // State to keep track of the selected option
@@ -20,6 +22,8 @@ const Dropdown = () => {
             </select>
             {/* Display selected option */}
             {selectedOption && <p>You selected: {selectedOption}</p>}
+            {selectedOption === "interior" && <Interior/>}
+            {selectedOption === "exterior" && <Exterior/>}
         </div>
     )
 }
