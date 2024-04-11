@@ -1,6 +1,8 @@
 const Header = () => {
   return (
-    <div>Header</div>
+    <div>
+        <h1>PermitFlow Application Process</h1>
+    </div>
   )
 }
 
