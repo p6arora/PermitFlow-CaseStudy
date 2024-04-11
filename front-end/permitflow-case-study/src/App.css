@@ -19,5 +19,5 @@ body{
 .header{
   width: 100%;
   font-size: large;
-  justify-content: center;
+  text-align: center;
 }
