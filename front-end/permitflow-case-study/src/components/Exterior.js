@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 
 const Exterior = ({ checkboxes, setCheckBoxes }) => {
     // State to keep track of the checked state of each checkbox

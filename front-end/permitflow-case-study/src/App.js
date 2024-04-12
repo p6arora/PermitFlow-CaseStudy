@@ -1,13 +1,24 @@
 import './App.css';
-import Header from './components/Header';
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
+import Header from './components/Header';
 import Interior from './components/Interior';
 import Exterior from './components/Exterior';
-import Dropdown from './components/Dropdown';
+import Results from './components/Results';
+
 
 function App() {
   // State to keep track of the selected option
   const [selectedOption, setSelectedOption] = useState('');
+
+  // State to keep track of result 
+  const [result, setResult] = useState('')
+
+  // State to keep track of when form is submitted
+  const [submitted, setSubmitted] = useState(false)
+
+  // Initialize the navigate function
+  //const navigate = useNavigate()
 
   // State to keep track of the checked state of each external checkbox
   const [exteriorCheckboxes, setExteriorCheckboxes] = useState({
@@ -64,48 +75,57 @@ function App() {
     // exterior logic
     if (selectedOption === "exterior") {
       if (exteriorCheckboxes.other) {
-        console.log("Other was selected - In-House Review Process is required")
+        setResult("Other was selected - In-House Review Process is required")
       }
       else if (exteriorCheckboxes.garageDoorReplacement || exteriorCheckboxes.exteriorDoors) {
-        console.log("Garage Door Replacement and/or Exterior Doors was submitted - Over-The-Counter Submission Process is required")
+        setResult("Garage Door Replacement and/or Exterior Doors was submitted - Over-The-Counter Submission Process is required")
       }
       else {
-        console.log("No Permit was submitted")
+        setResult("No Permit was submitted")
       }
     }
     // interior logic
     else {
       if (interiorCheckboxes.bathroomRemodel) {
-        console.log("Bathroom Remodel was selected - Over-The-Counter Submission Process is required")
+        setResult("Bathroom Remodel was selected - Over-The-Counter Submission Process is required")
       }
       else {
-        console.log("Bathroom Remodel was not selected - so In-House Review Process is needed")
+        setResult("Bathroom Remodel was not selected - so In-House Review Process is needed")
       }
 
     }
-
     console.log("Form has been submitted")
-
-
+    setSubmitted(true)
+    
   }
 
   return (
     <div className='app'>
-      <Header />
-      <form onSubmit={handleSubmit}>
-        <h2>What Residential Work Are You Doing?</h2>
-        {/* Dropdown select element */}
-        <select value={selectedOption} onChange={handleSelectChange}>
-          <option value="">Select...</option>
-          <option value="interior">Interior</option>
-          <option value="exterior">Exterior</option>
-        </select>
-        {/* Display selected option */}
-        {selectedOption && <p>You selected: {selectedOption}</p>}
-        {selectedOption === "interior" && <Interior checkboxes={interiorCheckboxes} setCheckBoxes={setInteriorCheckboxes} />}
-        {selectedOption === "exterior" && <Exterior checkboxes={exteriorCheckboxes} setCheckBoxes={setExteriorCheckboxes} />}
-        {selectedOption && validateOptionSelected() && <button type="submit">Submit</button>}
-      </form>
+      <Router>
+        <Routes>
+        <Route path='/results' element={<Results resultString={result}/>}/>
+          <Route path='/' element={
+            <div>
+              <Header />
+              <form onSubmit={handleSubmit}>
+                <h2>What Residential Work Are You Doing?</h2>
+                {/* Dropdown select element */}
+                <select value={selectedOption} onChange={handleSelectChange}>
+                  <option value="">Select...</option>
+                  <option value="interior">Interior</option>
+                  <option value="exterior">Exterior</option>
+                </select>
+                {/* Display selected option */}
+                {selectedOption && <p>You selected: {selectedOption}</p>}
+                {selectedOption === "interior" && <Interior checkboxes={interiorCheckboxes} setCheckBoxes={setInteriorCheckboxes} />}
+                {selectedOption === "exterior" && <Exterior checkboxes={exteriorCheckboxes} setCheckBoxes={setExteriorCheckboxes} />}
+                {selectedOption && validateOptionSelected() && <button type="submit">Submit</button>}
+              </form>
+              {/*submitted && navigate('/results')*/}
+            </div>
+          } />
+        </Routes>
+      </Router>
     </div>
   );
 }

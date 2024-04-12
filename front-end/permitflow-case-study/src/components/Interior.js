@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 
 const Interior = ({checkboxes, setCheckBoxes}) => {
     // State to keep track of the checked state of each checkbox
