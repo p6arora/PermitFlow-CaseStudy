@@ -122,11 +122,9 @@ const MainForm = () => {
                     <option value="interior">Interior</option>
                     <option value="exterior">Exterior</option>
                 </select>
-                {/* Display selected option */}
-                {selectedOption && <p>You selected: {selectedOption}</p>}
                 {selectedOption === "interior" && <Interior checkboxes={interiorCheckboxes} setCheckBoxes={setInteriorCheckboxes} />}
                 {selectedOption === "exterior" && <Exterior checkboxes={exteriorCheckboxes} setCheckBoxes={setExteriorCheckboxes} />}
-                {selectedOption && validateOptionSelected() && <button type="submit">Submit</button>}
+                {selectedOption && validateOptionSelected() && <button className="submit-button" type="submit">Submit</button>}
             </form>
         </div>
     )

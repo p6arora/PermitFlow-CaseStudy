@@ -21,3 +21,13 @@ body{
   font-size: large;
   text-align: center;
 }
+
+.checkbox-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.submit-button{
+  margin-top: 20px;
+  align-items: right;
+}
