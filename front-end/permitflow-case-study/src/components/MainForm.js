@@ -63,9 +63,26 @@ const MainForm = () => {
 
     }
 
+    // Reset checkboxes
+    const resetCheckboxes = () => {
+        
+        // Reset external checkboxes
+        exteriorCheckboxes.exteriorDoors = false
+        exteriorCheckboxes.fencing = false
+        exteriorCheckboxes.garageDoorReplacement = false
+        exteriorCheckboxes.other = false
+
+        // Reset internal checkboxes
+        interiorCheckboxes.bathroomRemodel = false
+        interiorCheckboxes.newBathroom = false
+        interiorCheckboxes.newLaundryRoom = false
+        interiorCheckboxes.other = false
+    } 
+
     // Handler function to update the selected option
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
+        resetCheckboxes()
     };
 
     const handleSubmit = e => {
