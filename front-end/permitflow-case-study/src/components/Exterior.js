@@ -1,18 +1,18 @@
 import { useState } from 'react';
 
-const Exterior = () => {
+const Exterior = ({ checkboxes, setCheckBoxes }) => {
     // State to keep track of the checked state of each checkbox
-    const [checkboxes, setCheckboxes] = useState({
-        garageDoorReplacement: false,
-        exteriorDoors: false,
-        fencing: false,
-        other: false
-    });
+    // const [checkboxes, setCheckboxes] = useState({
+    //     garageDoorReplacement: false,
+    //     exteriorDoors: false,
+    //     fencing: false,
+    //     other: false
+    // });
 
     // Handler function to toggle the checked state of a checkbox
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
-        setCheckboxes({
+        setCheckBoxes({
             ...checkboxes,
             [name]: checked
         });
