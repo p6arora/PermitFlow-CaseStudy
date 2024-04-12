@@ -1,14 +1,4 @@
-
-
 const Interior = ({checkboxes, setCheckBoxes}) => {
-    // State to keep track of the checked state of each checkbox
-    // const [checkboxes, setCheckboxes] = useState({
-    //     bathroomRemodel: false,
-    //     newBathroom: false,
-    //     newLaundryRoom: false,
-    //     other: false
-    // });
-
     // Handler function to toggle the checked state of a checkbox
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
@@ -57,13 +47,6 @@ const Interior = ({checkboxes, setCheckBoxes}) => {
                 />
                 Other
             </label>
-            {/* Display the checked state of each checkbox */}
-            <div>
-                <p>Bathroom Remodel is {checkboxes.bathroomRemodel ? 'checked' : 'unchecked'}</p>
-                <p>New Bathroom is {checkboxes.newBathroom ? 'checked' : 'unchecked'}</p>
-                <p>New Laundry Room is {checkboxes.newLaundryRoom ? 'checked' : 'unchecked'}</p>
-                <p>Other is {checkboxes.other ? 'checked' : 'unchecked'}</p>
-            </div>
         </div>
     )
 }
