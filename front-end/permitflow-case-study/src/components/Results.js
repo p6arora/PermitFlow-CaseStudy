@@ -12,7 +12,7 @@ const Results = () => {
 
             {enumResult.inHouseReviewProcess && 
             <div>
-                <h1>✅ In-House Review Process</h1>
+                <h1 style={{textAlign: "center"}}>✅ In-House Review Process</h1>
                 <ul>
                     <li>A building permit is required.</li>
                     <li>Include plan sets.</li>
@@ -22,7 +22,7 @@ const Results = () => {
             }
             {enumResult.otcSubmissionProcess &&
             <div>
-                <h1>✅ Over-the-Counter Submission Process</h1>
+                <h1 style={{textAlign: "center"}}>✅ Over-the-Counter Submission Process</h1>
                 <ul>
                     <li>A building permit is required.</li>
                     <li>Submit application for OTC review.</li>
@@ -31,7 +31,7 @@ const Results = () => {
             }
             {enumResult.noPermit && 
             <div>
-                <h1>❌ No Permit</h1>
+                <h1 style={{textAlign: "center"}}>❌ No Permit</h1>
                 <ul>
                     <li>Nothing is required! You're set to build.</li>
                 </ul>
