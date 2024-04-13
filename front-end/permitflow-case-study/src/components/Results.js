@@ -7,8 +7,6 @@ const Results = () => {
     return (
         <div>
             <p>Enum Result: {JSON.stringify(enumResult)}</p>
-            {console.log({enumResult})}
-            {console.log("We are in results component")}
 
             {enumResult.inHouseReviewProcess && 
             <div>

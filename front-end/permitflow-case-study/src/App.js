@@ -92,10 +92,6 @@ function App() {
       }
 
     }
-    console.log("Form has been submitted")
-    setSubmitted(true)
-    console.log("Submitted has been set to true")
-
   }
 
   // const navigate = useNavigate(); // Ensure this line is placed correctly

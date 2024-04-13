@@ -121,8 +121,6 @@ const MainForm = () => {
             }
 
         }
-        console.log(resultString)
-        console.log(resultEnum)
         
         navigate('/results', { state: { results: resultString, enumResult: resultEnum } });
     }
